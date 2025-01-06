@@ -1,0 +1,9 @@
+markitdown
+scrapy
+flask
+pymongo
+urllib3
+requests
+python-dotenv
+asyncio
+aiohttp
