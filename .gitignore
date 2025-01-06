@@ -9,5 +9,5 @@ spider/.env
 spider/pyvenv.cfg
 html-to-markdown/node_modules/
 html-to-markdown/.env
-data
-node_modules
+html-to-markdown/node_modules/
+data/
