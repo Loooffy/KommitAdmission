@@ -1,5 +1,0 @@
-openai
-pandas
-python-dotenv 
-markitdown
-scrapy
