@@ -12,4 +12,5 @@ html-to-markdown/.env
 html-to-markdown/ecosystem.config.js
 html-to-markdown/package-lock.json
 html-to-markdown/dist/
+html-to-markdown/temp/
 data/
