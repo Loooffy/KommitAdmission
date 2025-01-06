@@ -9,5 +9,7 @@ spider/.env
 spider/pyvenv.cfg
 html-to-markdown/node_modules/
 html-to-markdown/.env
-html-to-markdown/node_modules/
+html-to-markdown/ecosystem.config.js
+html-to-markdown/package-lock.json
+html-to-markdown/dist/
 data/
