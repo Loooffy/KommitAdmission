@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - crawler_network
+
+  spider:
+    build:
+      context: ./spider
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/
+    volumes:
+      - ./spider/data:/app/data
+    networks:
+      - crawler_network
+
+  html-to-markdown:
+    build:
+      context: ./html-to-markdown
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./html-to-markdown/temp:/app/temp
+    networks:
+      - crawler_network
+
+networks:
+  crawler_network:
+    driver: bridge
+
+volumes:
+  mongodb_data: 
