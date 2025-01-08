@@ -4,6 +4,7 @@ import { ConversionController } from './conversion.controller';
 import { ConversionService } from './conversion.service';
 import { HealthCheckController } from './health.controller';
 import { HealthCheckService } from './healthCheck.service';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
