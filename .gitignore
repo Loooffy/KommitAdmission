@@ -7,10 +7,11 @@ spider/share/
 spider/src/data/
 spider/.env
 spider/pyvenv.cfg
-html-to-markdown/node_modules/
-html-to-markdown/.env
-html-to-markdown/ecosystem.config.js
-html-to-markdown/package-lock.json
-html-to-markdown/dist/
-html-to-markdown/temp/
+html2markdown/node_modules/
+html2markdown/.env
+html2markdown/ecosystem.config.js
+html2markdown/package-lock.json
+html2markdown/dist/
+html2markdown/temp/
 data/
+
