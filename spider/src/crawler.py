@@ -31,7 +31,6 @@ class WebScraper:
         self.domain = parsed_url.netloc
         if self.domain.startswith('www.'):
             self.domain = self.domain[4:]
-        # self.school_name = get_school_abbreviation(url) or self.domain.split('.')[0]
         self.school_name = get_school_abbreviation(url)
         self.links = set()
         self.links_lock = threading.Lock()
@@ -66,7 +65,6 @@ class WebScraper:
             safe_print(f"Error saving to MongoDB: {str(e)}")
 
     def process_url(self, url):
-        # Remove fragment from URL for comparison
         base_url, _ = urldefrag(url)
         
         if base_url in self.visited:
@@ -76,7 +74,7 @@ class WebScraper:
         try:
             safe_print(f"DEBUG: Starting to process URL: {base_url}")
             response = requests.get(
-                url,  # Use original URL for request
+                url,
                 headers={
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
                 },
@@ -95,7 +93,7 @@ class WebScraper:
                 
                 for link in all_links:
                     full_url = urljoin(url, link)
-                    # Remove fragment from found URLs
+
                     base_full_url, _ = urldefrag(full_url)
                     parsed_url = urlparse(base_full_url)
                     initial_parsed = urlparse(self.url)
@@ -157,10 +155,8 @@ class WebScraper:
             end_time = time.time()
             safe_print(f"[DEBUG] Crawling finished in {end_time - start_time:.2f} seconds. Found {len(self.links)} links")
             
-            # Save final results
             self.save_results()
             return sorted(list(self.links))
         finally:
-            # Close MongoDB connection when done
             self.mongodb.close()
             safe_print("MongoDB connection closed")
